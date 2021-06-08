@@ -206,12 +206,13 @@ function network_setup() {
 function update_software() {
     # Look for internet connection.
     if ping -q -c 1 -W 1 1.1.1.1 >/dev/null 2>&1
+    REPO_PATH="https://raw.githubusercontent.com/mcdonc/enclosure-picroft/mcdonc-localdev"
     then
         echo "**** Checking for updates to Picroft environment"
         echo "This might take a few minutes, please be patient..."
 
         cd /tmp
-        wget -N -q https://raw.githubusercontent.com/MycroftAI/enclosure-picroft/buster/home/pi/version >/dev/null
+        wget -N -q $REPO_PATH/home/pi/version >/dev/null
         if [ $? -eq 0 ]
         then
             if [ ! -f ~/version ] ; then
@@ -225,7 +226,7 @@ function update_software() {
                 echo "**** Update found, downloading new Picroft scripts!"
                 speak "Updating Picroft, please hold on."
 
-                wget -N -q https://raw.githubusercontent.com/MycroftAI/enclosure-picroft/buster/home/pi/update.sh
+                wget -N -q $REPO_PATH/home/pi/update.sh
                 if [ $? -eq 0 ]
                 then
                     source update.sh

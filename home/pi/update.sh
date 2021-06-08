@@ -21,7 +21,7 @@
 # This script is executed by the auto_run.sh when a new version is found
 # at https://github.com/MycroftAI/enclosure-picroft/tree/buster
 
-REPO_PATH="https://raw.githubusercontent.com/MycroftAI/enclosure-picroft/buster"
+REPO_PATH="https://raw.githubusercontent.com/mcdonc/enclosure-picroft/mcdonc-localdev"
 
 if [ ! -f /etc/mycroft/mycroft.conf ] ;
 then
